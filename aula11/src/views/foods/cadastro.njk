@@ -1,0 +1,28 @@
+{% extends "layout.njk" %}
+
+{% set title = "Cadastrar" %}
+
+{% block content %}
+
+  <h1>Formulário de Cadastro</h1>
+
+  <form method="post" enctype="multipart/form-data" action="/foods/create/action">
+    <div class="form-group">
+      <label>Nome: </label>
+      <input class="form-control" type="text" name="name" />
+    </div>
+
+    <div class="form-group">
+      <label>Preço: </label>
+      <input class="form-control" type="number" name="price" />
+    </div>
+
+    <div class="form-group">
+      <label>Imagem: </label>
+      <input type="file" class="form-control" name="image" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+{% endblock %}
