@@ -1,12 +1,18 @@
-const Food = require('../models/Food');
-const Category = require('../models/Category');
+const Food = require("../models/Food");
+const Category = require("../models/Category");
+
+const addPage = async (req, res) => {
+  const categories = await Category.readAll();
+
+  res.render("foods/add.njk", { categories });
+};
 
 const index = async (req, res) => {
   const foods = await Food.readAll();
 
   const categories = await Category.readAll();
 
-  res.render('foods/index.njk', { foods, categories });
+  res.render("foods/index.njk", { foods, categories });
 };
 
 const readAll = async (req, res) => {
@@ -49,4 +55,4 @@ const destroy = async (req, res) => {
   res.status(204).send();
 };
 
-module.exports = { index, readAll, create, update, destroy };
+module.exports = { index, readAll, create, update, destroy, addPage };
