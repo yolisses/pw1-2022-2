@@ -7,6 +7,7 @@ router.get("/", (req, res) => res.redirect("/foods/index"));
 
 router.get("/foods/add", foodsController.add);
 router.get("/foods/index", foodsController.index);
+router.get("/foods/edit/:id", foodsController.edit);
 router.post("/foods/remove/:id", foodsController.destroy);
 router.get("/foods", foodsController.readAll);
 

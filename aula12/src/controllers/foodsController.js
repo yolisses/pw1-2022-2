@@ -4,13 +4,14 @@ const Category = require("../models/Category");
 const add = async (req, res) => {
   const categories = await Category.readAll();
 
-  res.render("foods/add.njk", { categories });
+  res.render("foods/add.njk", { categories, food: {} });
 };
 
-const remove = async (req, res) => {
+const edit = async (req, res) => {
   const { id } = req.params;
   const food = await Food.readById(id);
-  res.render("foods/delete.njk", { food });
+  const categories = await Category.readAll();
+  res.render("foods/add.njk", { food, categories });
 };
 
 const index = async (req, res) => {
@@ -68,5 +69,5 @@ module.exports = {
   update,
   destroy,
   add,
-  remove,
+  edit,
 };

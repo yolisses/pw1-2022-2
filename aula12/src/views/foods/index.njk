@@ -45,12 +45,10 @@
           </button>
           </form>
           </input>
-          <i
+          <a
             class="fas fa-pencil-alt"
-            onclick="loadUpdateFoodForm({{ food.id }}, '{{ food.name }}', '{{ food.image }}', '{{ food.price }}', '{{ food.category }}')"
-            data-toggle="modal"
-            data-target="#formFoodModal">
-          </i>
+            href="/foods/edit/{{food.id}}">
+          </a>
         </span>
       </div>
       <div class="card-body p-0">
