@@ -1,4 +1,4 @@
-<form id="formDeleteFood">
+<form id="formDeleteFood" action="/foods/{{food.id}}/delete" method="post">
   <div class="modal fade" id="deleteFoodModal" tabindex="-1" aria-labelledby="deleteFoodLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -9,11 +9,11 @@
           </button>
         </div>
         <div class="modal-body">
-          Deseja realmente excluir <span id="modal-name-food"></span>?
+          Deseja realmente excluir {{ food.name }}?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary" id="deleteFoodBtn">Excluir</button>
+          <a href="/foods/index" type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</a>
+          <input type="submit" class="btn btn-primary" id="deleteFoodBtn" value="Excluir"/>
         </div>
       </div>
     </div>

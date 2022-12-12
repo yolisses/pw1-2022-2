@@ -34,12 +34,17 @@
           {{ food.name }}
         </span>
         <span class="food-actions float-right">
+          <form action="/foods/remove/{{food.id}}" method="post">
+          <button type="submit">
           <i
             class="far fa-trash-alt"
             onclick="loadDeleteFoodForm({{ food.id }}, '{{ food.name }}')"
             data-toggle="modal"
             data-target="#deleteFoodModal">
           </i>
+          </button>
+          </form>
+          </input>
           <i
             class="fas fa-pencil-alt"
             onclick="loadUpdateFoodForm({{ food.id }}, '{{ food.name }}', '{{ food.image }}', '{{ food.price }}', '{{ food.category }}')"
@@ -60,7 +65,6 @@
   {% endfor %}
 </section>
 {% include "foods/_form.njk" %}
-{% include "foods/_delete.njk" %}
 {% endblock %}
 
 {% block script %}

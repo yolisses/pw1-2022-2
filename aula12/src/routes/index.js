@@ -5,8 +5,9 @@ const categoriesController = require("../controllers/categoriesController");
 
 router.get("/", (req, res) => res.redirect("/foods/index"));
 
-router.get("/foods/add", foodsController.addPage);
+router.get("/foods/add", foodsController.add);
 router.get("/foods/index", foodsController.index);
+router.post("/foods/remove/:id", foodsController.destroy);
 router.get("/foods", foodsController.readAll);
 
 router.post("/foods", foodsController.create);

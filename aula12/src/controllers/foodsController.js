@@ -1,10 +1,16 @@
 const Food = require("../models/Food");
 const Category = require("../models/Category");
 
-const addPage = async (req, res) => {
+const add = async (req, res) => {
   const categories = await Category.readAll();
 
   res.render("foods/add.njk", { categories });
+};
+
+const remove = async (req, res) => {
+  const { id } = req.params;
+  const food = await Food.readById(id);
+  res.render("foods/delete.njk", { food });
 };
 
 const index = async (req, res) => {
@@ -52,7 +58,15 @@ const destroy = async (req, res) => {
 
   await Food.destroy(id);
 
-  res.status(204).send();
+  res.redirect("/foods/index");
 };
 
-module.exports = { index, readAll, create, update, destroy, addPage };
+module.exports = {
+  index,
+  readAll,
+  create,
+  update,
+  destroy,
+  add,
+  remove,
+};
