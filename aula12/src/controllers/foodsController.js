@@ -30,7 +30,7 @@ const create = async (req, res) => {
 
   const food = await Food.readById(foodId);
 
-  res.json(food);
+  res.redirect("/foods/index");
 };
 
 const update = async (req, res) => {
